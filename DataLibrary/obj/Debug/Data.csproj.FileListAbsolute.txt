@@ -1,0 +1,35 @@
+D:\MVCApp\MVCApp\DataLibrary\bin\Debug\DataLibrary.dll
+D:\MVCApp\MVCApp\DataLibrary\bin\Debug\DataLibrary.pdb
+D:\MVCApp\MVCApp\DataLibrary\bin\Debug\Dapper.dll
+D:\MVCApp\MVCApp\DataLibrary\bin\Debug\Dapper.xml
+D:\MVCApp\MVCApp\DataLibrary\obj\Debug\Data.csprojAssemblyReference.cache
+D:\MVCApp\MVCApp\DataLibrary\obj\Debug\Data.csproj.CoreCompileInputs.cache
+D:\MVCApp\MVCApp\DataLibrary\obj\Debug\Data.csproj.CopyComplete
+D:\MVCApp\MVCApp\DataLibrary\obj\Debug\DataLibrary.dll
+D:\MVCApp\MVCApp\DataLibrary\obj\Debug\DataLibrary.pdb
+E:\MVCApp\MVCApp\DataLibrary\bin\Debug\DataLibrary.dll
+E:\MVCApp\MVCApp\DataLibrary\bin\Debug\DataLibrary.pdb
+E:\MVCApp\MVCApp\DataLibrary\bin\Debug\Dapper.dll
+E:\MVCApp\MVCApp\DataLibrary\bin\Debug\Dapper.xml
+E:\MVCApp\MVCApp\DataLibrary\obj\Debug\Data.csprojResolveAssemblyReference.cache
+E:\MVCApp\MVCApp\DataLibrary\obj\Debug\Data.csproj.CoreCompileInputs.cache
+E:\MVCApp\MVCApp\DataLibrary\obj\Debug\DataLibrary.dll
+E:\MVCApp\MVCApp\DataLibrary\obj\Debug\DataLibrary.pdb
+G:\MVCApp\MVCApp\DataLibrary\bin\Debug\DataLibrary.dll
+G:\MVCApp\MVCApp\DataLibrary\bin\Debug\DataLibrary.pdb
+G:\MVCApp\MVCApp\DataLibrary\bin\Debug\Dapper.dll
+G:\MVCApp\MVCApp\DataLibrary\bin\Debug\Dapper.xml
+G:\MVCApp\MVCApp\DataLibrary\obj\Debug\Data.csprojAssemblyReference.cache
+G:\MVCApp\MVCApp\DataLibrary\obj\Debug\Data.csproj.CoreCompileInputs.cache
+G:\MVCApp\MVCApp\DataLibrary\obj\Debug\Data.csproj.CopyComplete
+G:\MVCApp\MVCApp\DataLibrary\obj\Debug\DataLibrary.dll
+G:\MVCApp\MVCApp\DataLibrary\obj\Debug\DataLibrary.pdb
+D:\Michael's Documents\Desktop\MVCApp-2\DataLibrary\bin\Debug\DataLibrary.dll
+D:\Michael's Documents\Desktop\MVCApp-2\DataLibrary\bin\Debug\DataLibrary.pdb
+D:\Michael's Documents\Desktop\MVCApp-2\DataLibrary\bin\Debug\Dapper.dll
+D:\Michael's Documents\Desktop\MVCApp-2\DataLibrary\bin\Debug\Dapper.xml
+D:\Michael's Documents\Desktop\MVCApp-2\DataLibrary\obj\Debug\Data.csprojAssemblyReference.cache
+D:\Michael's Documents\Desktop\MVCApp-2\DataLibrary\obj\Debug\Data.csproj.CoreCompileInputs.cache
+D:\Michael's Documents\Desktop\MVCApp-2\DataLibrary\obj\Debug\Data.csproj.CopyComplete
+D:\Michael's Documents\Desktop\MVCApp-2\DataLibrary\obj\Debug\DataLibrary.dll
+D:\Michael's Documents\Desktop\MVCApp-2\DataLibrary\obj\Debug\DataLibrary.pdb

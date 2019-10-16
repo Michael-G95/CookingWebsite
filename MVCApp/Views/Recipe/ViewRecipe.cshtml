@@ -1,0 +1,116 @@
+﻿@model  MVCApp.Models.RecipeViewModel
+
+@{
+    ViewBag.Title = "ViewRecipe";
+}
+
+<script src="~/Scripts/ViewRecipe.js"></script>
+
+<div class="container-fluid text-center border-bottom border-dark">
+    <div class="modal-title border-bottom border-dark mb-5 mt-3">
+        <!-- Page title - display the recipe name -->
+        <h3>@Html.DisplayFor(m => Model.RecipeInfo.RecipeTitle)</h3>
+    </div>
+
+    <div class="container-fluid mb-5">
+        <div class="row">
+            <div class="col-xl-6 mb-3">
+                <!-- Check if an image is on the server for the recipe - if so, display it -->
+                @if (File.Exists(Server.MapPath(string.Concat("/Content/Images/Recipe/", Model.RecipeInfo.RecipeTitle, ".jpg"))))
+                {
+                    <img src="@string.Concat("/Content/Images/Recipe/",Model.RecipeInfo.RecipeTitle,".jpg")" alt="Image" />
+                }
+                else
+                {
+                    <p class="text-warning">
+                        No picture available!
+                    </p>
+                }
+
+            </div>
+            <div class="col-xl-6">
+                <table class="table table-bordered table-hover w-100">
+                    <!-- Display a vertical table - 
+                        FieldName | Field 
+                        With the recipe data
+                        -->
+                    <tr><td>@Html.DisplayNameFor(model => model.RecipeInfo.RecipeTitle)</td><td>@Html.DisplayFor(model => model.RecipeInfo.RecipeTitle)</td></tr>
+                    <tr><td>@Html.DisplayNameFor(model => model.RecipeInfo.RecipeDescription)</td><td>@Html.DisplayFor(model => model.RecipeInfo.RecipeDescription)</td></tr>
+                    <tr><td>@Html.DisplayNameFor(model => model.RecipeInfo.RecipePortions)</td><td id="RecipePortions">@Html.DisplayFor(model => model.RecipeInfo.RecipePortions)</td></tr>
+                    <tr><td>@Html.DisplayNameFor(model => model.RecipeInfo.RecipeCreator)</td><td>@Html.DisplayFor(model => model.RecipeInfo.RecipeCreator)</td></tr>
+                </table>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <!-- Input group to change the ingredient quantities -->
+                        <span class="input-group-text">Recalculate for n portions:</span>
+                    </div>
+                    <input type="text"  id ="PortionsInput" class="form-control" />
+                    <div class="input-group-append">
+                        <!-- Go button for changing portions - onclick calls JS -->
+                        <button class="btn btn-primary" onclick="recalcPortions()">Go</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid mt-5 row">
+            <div class="col-xl-6">
+                <table class="table table-bordered table-hover w-100">
+                    <tr class="thead-light">
+                        <!-- Table for ingredients
+            Display Thead with field names
+            -->
+                        <th>@Html.DisplayNameFor(model => model.Ingredients[0].IngredientName)</th>
+                        <th>@Html.DisplayNameFor(model => model.Ingredients[0].IngredientQuantity)</th>
+                        <th>@Html.DisplayNameFor(model => model.Ingredients[0].IngredientUnit)</th>
+                    </tr>
+
+
+                    @foreach (var item in Model.Ingredients)
+                    {
+                        <!-- Display a row for each ingredient with the data -->
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(model => item.IngredientName)
+                            </td>
+                            <td class="ingredientQuantity">
+                                @Html.DisplayFor(model => item.IngredientQuantity)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => item.IngredientUnit)
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+            <div class="col-xl-6">
+                <!-- Display a table for the method steps, counting ASC from 1 so they are stage numbered
+                    They are sorted in the DB stored function by order of insertion
+                    -->
+                <table class="table table-bordered table-hover w-100">
+                    <tr class="thead-light">
+                        <th>
+                            Step
+                        </th>
+                        <th>
+                            Method
+                        </th>
+                    </tr>
+                    @for (int i = 1; i <= Model.Methods.Count; i++)
+                    {
+                        <tr>
+                            <td>
+                                @i
+                            </td>
+                            <td>
+                                <p>
+                                    @Html.DisplayFor(model => model.Methods[i - 1].MethodText)
+                                </p>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+        @Html.ActionLink("Back to Recipe Homepage", "Index")
+    </div>
+</div>

@@ -1,0 +1,100 @@
+﻿@model MVCApp.Models.RecipeIndexModel
+
+@{
+    ViewBag.Title = Html.DisplayFor(m => m.Recipe.RecipeTitle);
+}
+<div class="container-fluid">
+
+    <div id="pageTitle" class="container-fluid text-center border-bottom border-dark mb-5">
+        <!-- Page title -->
+        <h2>
+            Recipes
+        </h2>
+    </div>
+
+    <div class="container-fluid text-center border-bottom border-dark">
+        <div class="modal-title border-bottom border-dark mb-5 mt-3">
+            <!-- Section title -->
+            <h3>Search</h3>
+        </div>
+
+        <div class="container-fluid w-75 justify-content-center mb-5">
+
+            @using (Html.BeginForm(controllerName: "Recipe", actionName: "SearchResult", method: FormMethod.Get))
+            {
+                <!-- Start of form for search input -->
+                <div class="row">
+                    <div class="input-group col-md-10 mb-3">
+                        <!-- input group for the search term -->
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Search by Name:</span>
+                        </div>
+                        @Html.EditorFor(m => m.SearchText, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+
+                    <div class="col-md-2 mb-3">
+                        <!-- Submit button -->
+                        <input type="submit" id="btnSearchName" value="Search" class="btn btn-primary" />
+                    </div>
+                </div>
+                <div class="container-fluid w-100 text-center">
+                    <!-- JQuery validation for search term -->
+                    @Html.ValidationMessageFor(m => m.SearchText, "", new { @class = "text-danger" })
+                </div>
+            }
+
+        </div>
+
+        <div class="modal-title border-bottom border-dark mb-5">
+            <!-- Section title -->
+            <h3>Random Recipe</h3>
+        </div>
+        <div class="row">
+            <div class="col-xl-6 mb-3">
+                <!-- Recipe picture -->
+                <img src="@string.Concat("/Content/Images/Recipe/",Model.Recipe.RecipeTitle,".jpg")" alt="Image" />
+            </div>
+            <div class="col-xl-6">
+                <!-- vertical table - FieldName | Field eg. Recipe name | Mac n cheese -->
+                <table class="table table-bordered" onclick="window.location.href='@Url.Action(controllerName:"Recipe",actionName:"ViewRecipe",routeValues:new {@RecipeID=Model.Recipe.RecipeID})'">
+                    <!-- Table onclick sends to recipe -->
+                    <tr>
+                        <!-- In each row displayed like "FieldName | FieldData" -->
+                        <td>@Html.DisplayNameFor(m => m.Recipe.RecipeTitle):</td>
+                        <td>@Html.DisplayFor(m => Model.Recipe.RecipeTitle)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(m => m.Recipe.RecipeDescription):</td>
+                        <td>@Html.DisplayFor(m => Model.Recipe.RecipeDescription)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(m => m.Recipe.CategoryName):</td>
+                        <td>@Html.DisplayFor(m => Model.Recipe.CategoryName)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(m => m.Recipe.RecipeCreator):</td>
+                        <td>@Html.DisplayFor(m => Model.Recipe.RecipeCreator)</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="modal-title border-bottom border-dark mb-5">
+            <h3>All Categories</h3><!-- Section header -->
+        </div>
+        <div class="container-fluid mb-5">
+            <table class="table table-hover w-100">
+                @foreach (var item in Model.Categories)
+                {
+                    <!-- Display a row for each category in the database,onclick to that category's info -->
+                    <tr onclick="window.location.href='@Url.Action("Category","Recipe",new {item.CategoryName})'">
+                        <td>@Html.DisplayFor(m => item.CategoryName)</td>
+                    </tr>
+                }
+            </table>
+
+        </div>
+
+
+    </div>
+</div>

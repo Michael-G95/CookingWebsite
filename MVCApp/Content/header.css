@@ -1,0 +1,177 @@
+﻿/*css for the header of each page- banner image and navbar*/
+
+* {
+    /*Reset all sizing to zero to avoid different-browser automatic value issues*/
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+body{
+    min-width:700px;
+}
+
+footer{
+    margin-left:5%;
+    margin-right:5%;
+
+}
+.title{
+    border-bottom: 1px solid black;
+    text-align:center;
+    margin-bottom:1.5rem;
+}
+
+a.navbutton {
+    /*Class for the navigation bar button links*/
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 5px;
+    background-color: #007bff;
+    text-decoration:none;
+    color:white;
+    padding: .67rem 0 0.67rem 0;
+    transition: background-color 0.15s ease-in-out;
+}
+
+a.navbutton:hover{
+    /*Change background colour on hover*/
+    background-color:#0069d9;
+}
+
+.hpad2 {
+    /*Class to add 2px horizontal padding*/
+    padding: 0 2px 0 2px;
+}
+
+.site-title {
+    /*Class for the site's title bar*/
+    margin-top: 0.5rem;
+    
+    padding-right:15px;
+    padding-left:15px;
+    border-bottom:3px solid tomato;
+}
+
+#contentArea {
+    /*Class to add the body styles*/
+    padding-top: 1rem;
+    border-bottom: 3px solid tomato;
+    background: url("images/background.jpg");
+    padding-bottom:1rem;
+}
+
+#content-body {
+    /*Section containing rows of content*/
+    margin-left: 5%;
+    margin-right: 5%;
+    padding:1rem;
+    display: flex;
+    background-color: lightgray;
+}
+
+.center-text{
+    /*Class to center text in a container*/
+    text-align:center;
+}
+.flexrow{
+    /*Class for a container to display its items in a row*/
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:nowrap;
+}
+
+.flexcolumn {
+    /*Class for a container to display its items in a column*/
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    position: relative;
+    justify-content: center;
+    align-content:center;
+}
+
+.titleimage{
+    /*styling for the title bar image*/
+    width:95%;
+    border-radius:10px;
+}
+
+.hmargin-1{
+    margin: 0 1rem 0 1rem;
+}
+.product-image{
+    /*styling for product images*/
+    padding-right:2rem;
+    border-radius:5px;
+}
+.product-text {
+    /*Styling for text to accompany product images*/
+    display: flex;
+    align-items: center;
+}
+
+.fcol33 {
+    /*Class to give an object 1/3 width relative to flex parent*/
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+}
+
+.fcol10 {
+    /*Class to give an object 10% width relative to flex parent*/
+    flex: 0 0 10%;
+    max-width: 10%;
+}
+.fcol20 {
+    /*Class to give an object 20% width relative to flex parent*/
+    flex: 0 0 20%;
+    max-width: 20%;
+}
+.fcol30 {
+    /*Class to give an object 30% width relative to flex parent*/
+    flex: 0 0 30%;
+    max-width: 30%;
+}
+.fcol50 {
+    /*Class to give an object 50% width relative to flex parent*/
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.fcol40 {
+    /*Class to give an object 40% width relative to flex parent*/
+    flex: 0 0 40%;
+    max-width: 40%
+}
+
+.fcol40 {
+    /*Class to give an object 45% width relative to flex parent*/
+    flex: 0 0 45%;
+    max-width: 45%
+}
+
+.fcol60 {
+    /*Class to give an object 60% width relative to flex parent*/
+    flex: 0 0 60%;
+    max-width: 60%
+}
+.fcol80 {
+    /*Class to give an object 80% width relative to flex parent*/
+    flex: 0 0 80%;
+    max-width: 80%
+}
+.fcol100 {
+    /*Class to give an object 100% width relative to flex parent*/
+    flex: 0 0 100%;
+    max-width: 100%
+}
+
+

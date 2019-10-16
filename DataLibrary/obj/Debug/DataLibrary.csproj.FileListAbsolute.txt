@@ -1,0 +1,8 @@
+E:\MVCApp\DataLibrary\bin\Debug\DataLibrary.dll
+E:\MVCApp\DataLibrary\bin\Debug\DataLibrary.pdb
+E:\MVCApp\DataLibrary\bin\Debug\Dapper.dll
+E:\MVCApp\DataLibrary\bin\Debug\Dapper.xml
+E:\MVCApp\DataLibrary\obj\Debug\DataLibrary.csprojResolveAssemblyReference.cache
+E:\MVCApp\DataLibrary\obj\Debug\DataLibrary.csproj.CoreCompileInputs.cache
+E:\MVCApp\DataLibrary\obj\Debug\DataLibrary.dll
+E:\MVCApp\DataLibrary\obj\Debug\DataLibrary.pdb

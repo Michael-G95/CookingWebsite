@@ -1,0 +1,87 @@
+﻿@model MVCApp.Models.CreateLoginModel
+
+@{
+    ViewBag.Title = "Create User";
+}
+
+<div class="container-fluid">
+    <div id="pageTitle" class="container-fluid text-center border-bottom border-dark mb-5">
+        <h2>
+            <!-- Page title -->
+            Create a new user
+        </h2>
+    </div>
+    @if (Model.State==1)
+    {
+        <!-- Used to convey success on creating account -->
+        <div class="container-fluid col-12">
+            <p class="text-success text-center">
+                Account created successfully!
+            </p>
+        </div>
+    }
+    else if (Model.State==-1)
+    {
+        <div class="container-fluid col-12">
+            <p class="text-danger text-center">
+                Error in creating account
+            </p>
+        </div>
+    }
+
+        <div class="container-fluid col-xl-5 col-md-8 col-sm-10 ml-auto mr-auto">
+            @using (Html.BeginForm(controllerName: "Account", actionName: "Register", method: FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <!-- Start of form -->
+                <div class="mr-auto ml-auto">
+                    <div>
+                        <!-- input area for username -->
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                @Html.LabelFor(m => m.Username, new { @class = "input-group-text" })
+                            </div>
+                            @Html.EditorFor(m => m.Username, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+                    </div>
+                    <div>
+                        <!-- input area for password -->
+                        <div class="input-group mb-3">
+
+                            <div class="input-group-prepend">
+                                @Html.LabelFor(m => m.Password, new { @class = "input-group-text" })
+                            </div>
+                            @Html.EditorFor(m => m.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div>
+                        <!-- input area for role -->
+                        <div class="input-group mb-3">
+
+                            <div class="input-group-prepend">
+                                @Html.LabelFor(m => m.Role, new { @class = "input-group-text" })
+                            </div>
+                            @Html.DropDownListFor(m => m.Role, new SelectList(Model.Roles.Select(x => x.Role)), htmlAttributes: new { @class = "form-control" }, optionLabel: "Please Select")
+                        </div>
+                        @Html.ValidationMessageFor(m => m.Role, "", new { @class = "text-danger" })
+                    </div>
+
+
+                    <div class="form-group">
+                        <!-- submit button -->
+                        <div class="input-group mr-auto ml-auto">
+                            <input type="submit" class="btn btn-primary ml-auto mr-auto" value="Create new user" />
+                        </div>
+                    </div>
+
+                </div>
+            }
+            <!-- End form -->
+        </div>
+
+</div>
+
+

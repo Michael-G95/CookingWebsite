@@ -1,0 +1,9 @@
+C:\Users\micha\source\repos\MVCApp\Database\bin\Debug\Database.dacpac
+C:\Users\micha\source\repos\MVCApp\Database\bin\Debug\Database.dll
+C:\Users\micha\source\repos\MVCApp\Database\bin\Debug\Database.pdb
+C:\Users\micha\source\repos\MVCApp\Database\obj\Debug\Model.xml
+C:\Users\micha\source\repos\MVCApp\Database\obj\Debug\refactor.xml
+C:\Users\micha\source\repos\MVCApp\Database\obj\Debug\postdeploy.sql
+C:\Users\micha\source\repos\MVCApp\Database\obj\Debug\predeploy.sql
+C:\Users\micha\source\repos\MVCApp\Database\obj\Debug\Database.dll
+C:\Users\micha\source\repos\MVCApp\Database\obj\Debug\Database.pdb

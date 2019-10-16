@@ -1,0 +1,103 @@
+﻿@model MVCApp.Models.CatalogModel
+
+@{
+    // Viewbag used to set page title
+    ViewBag.Title = "Catalog";
+}
+
+<div class="container-fluid"> <!--Container for the page-->
+    <div id="pageTitle" class="container-fluid text-center border-bottom border-dark mb-5">
+    <!--Page title container-->
+        <h2>
+            Catalog
+        </h2>
+    </div>
+
+    <div class="container-fluid text-center border-bottom border-dark"> <!--Container for the page content-->
+        <div class="modal-title border-bottom border-dark mb-5 mt-3"> <!--Content area header-->
+            <h3>Search</h3>
+        </div>
+
+        <div class="container-fluid w-75 justify-content-center"> <!--Container for the forms on the page-->
+            @using (Html.BeginForm(controllerName: "Catalog", actionName: "SearchByName", method: FormMethod.Get))
+
+            {
+                <!--Form to search by name-->
+                <div class="row">
+                    <div class="input-group col-md-10 mb-3"> <!--BS input group - attach the input-group-prepend visually to start of the form-control-->
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Search by Name:</span>
+                        </div>
+                        @Html.EditorFor(m => m.SearchTerm, new { htmlAttributes = new { @class = "form-control" } }) <!--HTML Helper for the Search Term-->
+                    </div>
+                    <div class="col-md-2 mb-3">
+                        <input type="submit" id="btnSearchName" value="Search" class="btn btn-primary" /><!--Submit button for first form-->
+                    </div>
+                </div>
+                <div class="container-fluid w-100 text-center mb-2">
+                    @Html.ValidationMessageFor(m => m.SearchTerm, "", new { @class = "text-danger" })<!--Validation message placed below the input-->
+                </div>
+            }<!--End of first form search by name-->
+
+            @using (Html.BeginForm(controllerName: "Catalog", actionName: "SearchByCategory", method: FormMethod.Get))
+
+            {
+                <!--Form to search by category -->
+                <div class="row">
+                    <div class="input-group col-md-10 mb-3"> <!--BS input group - attach the input-group-prepend visually to start of the form-control-->
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Search by Category:</span>
+                        </div>
+                        @Html.DropDownListFor(m => m.SearchTerm, new SelectList(Model.Categories.Select(x => x.CategoryName)), "Please Select", new { @class = "form-control" }) <!--HTML Helper for the Search Term-->
+                    </div>
+                    <div class="col-md-2 mb-3">
+                        <input type="submit" id="btnSearchCat" value="Search" class="btn btn-primary" /> <!--Submit button for second form-->
+                    </div>
+
+                </div>
+                <div class="container-fluid w-100 text-center mb-2">
+                    @Html.ValidationMessageFor(m => m.SearchTerm, "", new { @class = "text-danger" }) <!--Validation for search term-->
+                </div>
+            }<!--End of the second form-->
+
+        </div>
+
+        <div class="modal-title border-bottom border-dark mb-5"> <!--Content section title-->
+            <h3>All Products</h3>
+        </div>
+
+        <!--print out information for each category-->
+        @foreach (var category in Model.Categories)
+        {
+            
+            <div class="modal-title border-bottom border-dark">
+                <h3>@category.CategoryName</h3>
+            </div>
+            <div class="container-fluid mb-5">
+
+                <table class="table table-bordered table-hover w-100">
+                    <tr class="thead-light">
+                        <th>@Html.DisplayNameFor(model => model.Products[0].ProdName)</th>
+                        <th>@Html.DisplayNameFor(model => model.Products[0].ProductID)</th>
+                        <th>@Html.DisplayNameFor(model => model.Products[0].ProdDescription_Short)</th>
+                        <th>@Html.DisplayNameFor(model => model.Products[0].ProdPrice)</th>
+                    </tr>
+                    <!--print out information for each product in each category-->
+                    @foreach (var item in Model.Products.Where(m => m.CategoryName == category.CategoryName)) 
+                    {
+                        <tr onclick="window.location.href='@Url.Action("Product","Catalog",new {item.ProductID})'">
+                            <td>@Html.DisplayFor(i => item.ProdName)</td>
+                            <td>@Html.DisplayFor(i => item.ProductID)</td>
+                            <td>@Html.DisplayFor(i => item.ProdDescription_Short)</td>
+                            <td>£@Html.DisplayFor(i => item.ProdPrice)</td>
+
+                        </tr>
+                    }
+                </table>
+
+            </div>
+        }
+    </div>
+</div>
+
+

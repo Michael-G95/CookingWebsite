@@ -1,0 +1,22 @@
+﻿@model  MVCApp.Models.ErrorModel
+@{
+    ViewBag.Title = "Error";
+}
+
+<div class="container-fluid">
+    <div id="pageTitle" class="container-fluid text-center border-bottom border-dark mb-5">
+        <h2>
+            Error
+        </h2>
+    </div>
+
+    <div class="container-fluid col-12">
+        <p class="text-center text-danger">
+            <strong>Error!</strong><br />
+            @Model.Message
+        </p>
+        <p class="text-center">
+            @Html.ActionLink("Return to the menu", actionName: "Menu", controllerName: "Staff")
+        </p>
+    </div> 
+</div>

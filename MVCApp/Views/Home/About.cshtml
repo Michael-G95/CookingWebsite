@@ -1,0 +1,117 @@
+﻿@model MVCApp.Models.CommentModel
+
+@{
+    ViewBag.Title = "About";
+}
+
+<body>
+    <div class="container-fluid">
+
+    <div class="container-fluid text-center border-bottom border-dark mb-5"> <!-- Page title -->
+                <h2>
+                    About Belfast Cookery
+                </h2>
+    </div>
+        <div class="container-fluid w-100 text-center"> <!-- 100% width div with info text -->
+            <p>
+                Belfast cookery is a local website, created to give residents of belfast, as well as those visiting, information about local restaurants, quality supplies available
+                in the city, and our selection of top local restaurants
+            </p>
+        </div>
+
+        <div class="container-fluid w-100 text-center mb-3"> <!-- 100% width div with info text -->
+            <p>
+                If you have any questions or would like to submit a comment about our website, please use the form below
+            </p>
+        </div>
+
+        @if (Model.State == 1)
+        {
+            <!-- Used to convey success on creating account -->
+            <div class="container-fluid col-12">
+                <p class="text-success text-center">
+                    Comment Submitted
+                </p>
+            </div>
+        }
+        else if (Model.State == -1)
+        {
+            <div class="container-fluid col-12">
+                <p class="text-danger text-center">
+                    Error in submitting comment
+                </p>
+            </div>
+        }
+        <div class="container-fluid col-xl-5 col-md-8 col-sm-10 ml-auto mr-auto ">
+            @using (Html.BeginForm(controllerName: "Home", actionName: "SubmitComment"))
+            {
+                <!-- Begin form -->
+                @Html.AntiForgeryToken() <!-- Help to prevent against automated or faked post messages -->
+
+                <div class="">
+                    <h4 class="text-center border-bottom pb-2 mb-3 border-dark">Submit a Comment</h4>
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        <!-- Input area for commenter's name -->
+                        <div class="input-group  mr-auto ml-auto w-100">
+                            <div class="input-group-prepend">
+                                @Html.LabelFor(model => model.CommentName, htmlAttributes: new { @class = "control-label input-group-text" })
+                            </div>
+                            @Html.EditorFor(model => model.CommentName, new { htmlAttributes = new { @class = "form-control" } })
+
+                        </div>
+                        @Html.ValidationMessageFor(model => model.CommentName, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <!-- Input area for email address -->
+                        <div class="input-group  mr-auto ml-auto w-100">
+                            <div class="input-group-prepend">
+                                @Html.LabelFor(model => model.CommentEmail, htmlAttributes: new { @class = "control-label input-group-text" })
+                            </div>
+                            @Html.EditorFor(model => model.CommentEmail, new { htmlAttributes = new { @class = "form-control" } })
+
+                        </div>
+                        @Html.ValidationMessageFor(model => model.CommentEmail, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <!-- Input area for subject -->
+                        <div class="input-group  mr-auto ml-auto w-100">
+                            <div class="input-group-prepend">
+                                @Html.LabelFor(model => model.CommentSubject, htmlAttributes: new { @class = "control-label input-group-text" })
+                            </div>
+                            @Html.EditorFor(model => model.CommentSubject, new { htmlAttributes = new { @class = "form-control" } })
+
+                        </div>
+                        @Html.ValidationMessageFor(model => model.CommentSubject, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group text-center">
+                        <!-- Input area for message -->
+                        @Html.LabelFor(model => model.CommentMessage, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="mr-auto ml-auto">
+                            @Html.EditorFor(model => model.CommentMessage, new { htmlAttributes = new { @class = "form-control" } })
+
+                        </div>
+                        @Html.ValidationMessageFor(model => model.CommentMessage, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group ">
+                        <!-- Input area for submit button -->
+                        <div class="input-group">
+                            <div class="mr-auto ml-auto">
+                                <input type="submit" value="Submit" class="btn btn-primary" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            <!-- End of form -->
+        </div>
+
+
+    </div>
+</body>

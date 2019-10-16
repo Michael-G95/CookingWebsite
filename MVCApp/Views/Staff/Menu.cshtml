@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Staff Menu";
+}
+
+<div class="container-fluid">
+    <div id="pageTitle" class="container-fluid text-center border-bottom border-dark mb-5">
+        <h2>
+            <!-- Page title -->
+            Staff Menu
+        </h2>
+    </div>
+
+    <div class="container-fluid col-xl-5 col-md-8 col-sm-10 ml-auto mr-auto">
+        <ul class="list-group">
+            <!-- List of links to each staff page -->
+            <li class="list-group-item text-center mb-2">
+                @Html.ActionLink(controllerName: "Staff", actionName: "ViewComments", linkText: "View Comments")
+            </li>
+            <li class="list-group-item text-center mb-2">
+                @Html.ActionLink(controllerName: "Staff", actionName: "AddRecipe", linkText: "Add Recipe")
+            </li>
+            <li class="list-group-item text-center mb-2">
+                @Html.ActionLink(controllerName: "Staff", actionName: "AddRecipeItem", linkText: "Add Recipe Item")
+            </li>
+            <li class="list-group-item text-center mb-2">
+                @Html.ActionLink(controllerName: "Staff", actionName: "CreateUser", linkText: "Create New Staff User")
+            </li>
+            <li class="list-group-item text-center mb-2">
+                @Html.ActionLink(controllerName: "Account", actionName: "Logoff", linkText: "Log Out")
+            </li>
+        </ul>
+    </div>
+
+</div>
+

@@ -1,0 +1,64 @@
+﻿@model  List<MVCApp.Models.CommentModel>
+@{
+    ViewBag.Title = "ViewComments";
+}
+
+<div class="container-fluid">
+    <div class="container-fluid text-center border-bottom border-dark mb-5">
+        <div class="modal-title">
+            <!-- Page title -->
+            <h3>Comments</h3>
+        </div>
+    </div>
+
+    @if (Model.Count == 0)
+    {
+        <!-- Display a message if no comments to show  -->
+        <div class="container-fluid text-center text-danger mb-5">
+            <p>
+                No Comments Found!
+            </p>
+        </div>
+    }
+    else
+    {
+        <!--Table  -->
+        <div class="container-fluid">
+            <table class="table-responsive table table-bordered col-12">
+                <tr class="thead-light">
+                    <!-- Thead with each field name in thecomment -->
+                    <th>
+                        @Html.DisplayNameFor(Model => Model[0].CommentName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(Model => Model[0].CommentSubject)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(Model => Model[0].CommentEmail)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(Model => Model[0].CommentMessage)
+                    </th>
+                </tr>
+                @foreach (var m in Model)
+                {
+                    <!-- For each comment, display a row with the data -->
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(mod => m.CommentName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(mod => m.CommentSubject)
+                        </td>
+                        <td class="">
+                            @Html.DisplayFor(mod => m.CommentEmail)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(mod => m.CommentMessage)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    }
+</div>

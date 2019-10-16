@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Belfast Cookery</title>
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/layout_css")
+    <!-- Include the CSS Styles for the tempalte layout-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <!-- Start of header-->
+    <header>
+        <div class="flexrow site-title">
+            <!-- Container div for title bar -->
+            <div class="flexcolumn fcol10">
+                <!--Column for title-->
+                <h2 class="">
+                    Belfast Cookery
+                </h2>
+            </div>
+            <div class="fcol30 mb-auto mt-auto">
+                <!--Spacing between title and nav bar-->
+                <img src="~/Content/images/title_banner4.jpg" class="fcol100 titleimage d-none d-xl-block" />    
+            </div>
+            <div class="flexcolumn fcol60 ">
+                <!-- Column for container for nav buttons-->
+                <div class="flexrow">
+                    <div class="flexcolumn fcol20 hpad2"> <!-- Navigation button-->
+                        <a href="@Url.Action(controllerName:"Home",actionName:"Index")" class="navbutton">Home</a>
+                    
+                    </div>
+                    <div class="flexcolumn fcol20 hpad2">
+                        <!-- Navigation button-->
+                        <a href="@Url.Action(controllerName:"Catalog",actionName:"Index")" class="navbutton">Catalog</a>
+                    </div>
+                    <div class="flexcolumn fcol20 hpad2">
+                        <!-- Navigation button-->
+                        <a href="@Url.Action(controllerName:"Recipe",actionName:"Index")" class="navbutton">Recipes</a>
+                    </div>
+                    <div class="flexcolumn fcol20 hpad2">
+                        <!-- Navigation button-->
+                        <a href="@Url.Action(controllerName:"Restaurant",actionName:"Index")" class="navbutton">Restaurants</a>
+                    </div>
+                    <div class="flexcolumn fcol20 hpad2">
+                        <!-- Navigation button-->
+                        <a href="@Url.Action(controllerName:"Home",actionName:"About")" class="navbutton">About</a>
+                    </div>
+                </div>
+            </div> <!--End of nav buttons column-->
+        </div>
+    </header>
+    <!-- End of header-->
+    <div id="contentArea">
+        <div id="content-body">
+            @RenderBody()
+        </div>
+    </div>
+    
+
+
+    <footer class="flexrow">
+        <div class="flexcolumn fcol33" >
+            <p>
+                Belfast Cookery<br />
+                123 Cooks Lane<br />
+                Belfast<br />
+                BT1 1AA<br />
+            </p>
+        </div>
+        <div class="flexcolumn fcol33">
+            <p>
+                Email: <br />
+                <a href="mailto:admin@belfastcookery.co.uk">admin@belfastcookery.co.uk</a><br />
+                Phone:<br />
+                028 9123 4567<br />
+            </p>
+        </div>
+        <div class="flexcolumn fcol33" >
+            <p>
+                <a href="@Url.Action(actionName:"About",controllerName:"Home")" class="footer">About Us</a><br />
+                <a href="@Url.Action(actionName:"Index",controllerName:"Staff")" class="footer">Staff Login</a><br />
+                (c) Belfast Cookery 2019<br />
+                All Rights Reserved<br />
+            </p>
+        </div>
+    </footer>
+
+    @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    
+</body>
+</html>

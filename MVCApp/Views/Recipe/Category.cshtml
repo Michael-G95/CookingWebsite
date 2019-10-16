@@ -1,0 +1,46 @@
+﻿@model  List<MVCApp.Models.RecipeModel>
+@{
+    ViewBag.Title = "Category Results";
+}
+
+@if (Model == null)
+{
+    <p>
+        Error!
+    </p>
+}
+else
+{
+    <div class="container-fluid text-center border-bottom border-dark">
+        <div class="modal-title border-bottom border-dark mb-5 mt-3">
+            <!-- Page title -->
+            <h3>Category Results</h3>
+        </div>
+
+        <div class="container-fluid mb-5">
+            <!-- table container -->
+
+            <table class="table table-bordered table-hover w-100">
+                <tr class="thead-light">
+                    <!-- Table header with titles of each field -->
+                    <th>@Html.DisplayNameFor(model => Model[0].RecipeTitle)</th>
+                    <th>@Html.DisplayNameFor(model => model[0].RecipeDescription)</th>
+                    <th>@Html.DisplayNameFor(model => model[0].RecipePortions)</th>
+                    <th>@Html.DisplayNameFor(model => model[0].RecipeCreator)</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <!-- For each item in search results, print the info -->
+                    <tr onclick="window.location.href='@Url.Action(controllerName:"Recipe",actionName:"ViewRecipe",routeValues:new {item.RecipeID})'">
+                        <td>@Html.DisplayFor(i => item.RecipeTitle)</td>
+                        <td>@Html.DisplayFor(i => item.RecipeDescription)</td>
+                        <td>@Html.DisplayFor(i => item.RecipePortions)</td>
+                        <td>@Html.DisplayFor(i => item.RecipeCreator)</td>
+
+                    </tr>
+                }
+            </table>
+            @Html.ActionLink("Back to Recipe Homepage", "Index")
+        </div>
+</div>
+}

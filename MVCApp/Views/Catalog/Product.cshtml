@@ -1,0 +1,68 @@
+﻿@model MVCApp.Models.ProductDisplayModel
+<!--Product category page - takes in a display model and displays the information for a product-->
+
+@{
+    //Viewbag used to set page title
+    ViewBag.Title = @Html.DisplayFor(m => m.ProdName);
+}
+
+<div class="container-fluid text-center border-bottom border-dark">
+    <!-- Page container -->
+    <div class="modal-title border-bottom border-dark mb-5 mt-3">
+        <!-- Page title -->
+        <h3>@Html.DisplayFor(m => m.ProdName)</h3>
+    </div>
+
+    <!-- Check to see if the product can be displayed - if it is null, it cant be displayed -->
+    @if (Model.ProdName == null)
+    {
+        <!-- Invalid model - display an error message -->
+        <div class="container-fluid col-12">
+            <p class="text-danger">
+                Product not found!
+                <br />
+                @Html.ActionLink("Return to the Catalog Index","Index")
+            </p>
+        </div>
+    }
+    else
+    {
+        <div class="row"> <!-- Displaying the image on the left then a table on the right -->
+            <div class="col-xl-6 w-100 mb-3">
+                <img src="@string.Concat("/Content/Images/Product/",Model.ProdName,".jpg")" alt="Image" />
+            </div>
+            <div class="col-xl-6 w-100">
+                <table class="table table-bordered table-hover w-100"> <!-- Table displaying properties of Model -->
+                    <tr>
+                        <td class="w-50">@Html.DisplayNameFor(m => m.CategoryName)</td>
+                        <td class="w-50">@Html.DisplayFor(m => m.CategoryName)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(m => m.ProductID)</td>
+                        <td>@Html.DisplayFor(m => m.ProductID)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.DisplayNameFor(m => m.ProdPrice)</td>
+                        <td>@Html.DisplayFor(m => m.ProdPrice)</td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+
+        <div class="row pt-5">
+            <div class="col-12"><!-- Displaying product discription -->
+                <p>
+                    @Model.ProdDescription_Long
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <p class="col-12">
+                @Html.ActionLink("Back to Catalog", "Index") <!-- Link back to main catalog page -->
+            </p>
+
+        </div>
+    }
+    </div>
+

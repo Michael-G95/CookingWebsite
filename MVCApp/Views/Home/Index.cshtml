@@ -1,0 +1,116 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    // This is used with the layout to set the <head>'s title element
+}
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Belfast Cookery</title>
+
+    <script src="~/Scripts/imageSlider.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        // Start the slider, timer 2500ms, location of json file containing data for images to display
+        startImageSlider(2500, "/Home/ImageJSON");
+    </script>
+</head>
+
+
+<body>
+    <div class="container-fluid">
+
+
+        <div>
+            <div id="pageTitle" class="container-fluid text-center mb-5 mt-3">
+                <!-- Page title -->
+                <h2>
+                    What we provide at Belfast Cookery
+                </h2>
+            </div>
+
+            <div>
+                <!-- Content row - all content in this tag will be displayed in a row -->
+                <div class="container-fluid row">
+                    <!-- Article containing set format of content for the page -->
+                    <article class="container-fluid col-xl-6">
+
+                        <!-- Title of products article's content -->
+                        <div class="border-bottom border-dark mb-2 text-center">
+                            <h3>Products</h3>
+                        </div>
+
+                        <div class="container-fluid">
+                            <!-- Image for this article -->
+                            <div class="container-fluid w-100">
+                                <img class="content-img mx-auto d-block" id="imgProducts" src="~/Content/images/index_pan.jpg" height="360" width="500" />
+                            </div>
+
+
+                            <!-- Text for this article -->
+                            <div class="w-100 text-center">
+                                <p>
+                                    We provide information, reviews and local suppliers for top quality cookware - for the professional or the home cook
+                                </p>
+                            </div>
+                        </div>
+                    </article><!-- End of content-area article -->
+                    <!-- Article containing set format of content for the page -->
+                    <article class="container-fluid col-xl-6">
+
+                        <!-- Title of restaurant article's content -->
+                        <div class="border-bottom border-dark mb-2 text-center">
+                            <h3>Restaurants</h3>
+                        </div>
+
+                        <div class="container-fluid">
+                            <!-- Image for this article -->
+                            <div class="w-100">
+                                <img class="mx-auto d-block content-img" id="imgRestaurants" src="~/Content/images/index_darcys.jpg" height="360" width="500" />
+                            </div>
+
+
+                            <!-- Text for this article -->
+                            <div class="w-100 text-center">
+                                <p>
+                                    We provide menus, reviews and recommendations for the best places to eat in Belfast
+                                </p>
+                            </div>
+                        </div>
+                    </article><!-- End of content-area article -->
+
+
+                </div><!-- End of content-row -->
+
+
+                <div class="container-fluid row">
+                    <article class="container-fluid">
+
+                        <!-- Title of recipe article's content -->
+                        <div class="border-bottom border-dark mb-2 text-center">
+                            <h3>Recipes</h3>
+                        </div>
+                        <div>
+                            <div class="container-fluid mx-auto">
+                                <!-- Image for this article -->
+                                <div class="w-100">
+                                    <img class="content-img mx-auto d-block" id="imgRecipes" src="~/Content/images/index_macncheese.jpg" height="360" width="500" />
+                                </div>
+                                <!-- Text for this article -->
+                                <div class="w-100 text-center">
+                                    <p>
+                                        Top quality recipes to help you be the best cook you can be!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </article><!-- End of content-area article -->
+
+
+
+                </div><!-- End of content-row -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>

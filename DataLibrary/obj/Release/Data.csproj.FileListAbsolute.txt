@@ -1,0 +1,9 @@
+G:\MVCApp\MVCApp\DataLibrary\bin\Release\DataLibrary.dll
+G:\MVCApp\MVCApp\DataLibrary\bin\Release\DataLibrary.pdb
+G:\MVCApp\MVCApp\DataLibrary\bin\Release\Dapper.dll
+G:\MVCApp\MVCApp\DataLibrary\bin\Release\Dapper.xml
+G:\MVCApp\MVCApp\DataLibrary\obj\Release\Data.csprojAssemblyReference.cache
+G:\MVCApp\MVCApp\DataLibrary\obj\Release\Data.csproj.CoreCompileInputs.cache
+G:\MVCApp\MVCApp\DataLibrary\obj\Release\Data.csproj.CopyComplete
+G:\MVCApp\MVCApp\DataLibrary\obj\Release\DataLibrary.dll
+G:\MVCApp\MVCApp\DataLibrary\obj\Release\DataLibrary.pdb

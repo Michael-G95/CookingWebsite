@@ -1,0 +1,151 @@
+﻿@model  MVCApp.Models.AddRecipeItemModel
+@{
+    ViewBag.Title = "EditRecipe";
+}
+
+<div class="container-fluid">
+    <div id="pageTitle" class="container-fluid text-center border-bottom border-dark mb-5">
+        <h2>
+            <!-- Page title  -->
+            Add items to a Recipe
+        </h2>
+    </div>
+    @if (Model.ResultCode == 1)
+    {
+        <!-- Used when submit pressed to convey success/failure -->
+        <div class="container-fluid text-center text-success">
+            <p>
+                Item successfully added!
+            </p>
+        </div>
+    }
+    else if (Model.ResultCode == 0)
+    {
+        <div class="container-fluid text-danger text-center">
+            <p>
+                Unable to add item to database!
+            </p>
+        </div>
+    }
+
+        <div class="container-fluid col-xl-5 col-md-8 col-sm-10 ml-auto mr-auto">
+            @using (Html.BeginForm(controllerName: "Staff", actionName: "AddRecipeMethod"))
+            {
+                <!-- Start of form for adding method step -->
+                <div class="form-horizontal">
+                    <div class="container-fluid mb-3">
+                        <h3 class="text-center">
+                            Add a Method Step
+                        </h3>
+                    </div>
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group ">
+                        <!-- Input for method text -->
+                        <div class="input-group  mr-auto ml-auto">
+                            <div class="input-group-prepend">
+                                @Html.LabelFor(model => model.MethodText, htmlAttributes: new { @class = "control-label input-group-text" })
+                            </div>
+                            @Html.EditorFor(model => model.MethodText, new { htmlAttributes = new { @class = "form-control" } })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.MethodText, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <!-- Dropdownlist to choose the recipe -->
+                        <div class="input-group  mr-auto ml-auto">
+                            <div class="input-group-prepend">
+                                @Html.LabelFor(model => model.RecipeTitle, htmlAttributes: new { @class = "control-label input-group-text" })
+                            </div>
+                            @Html.DropDownListFor(model => model.RecipeTitle, new SelectList(Model.RecipeTitles), htmlAttributes: new { @class = "form-control" }, optionLabel: "Please Select")
+                        </div>
+                        @Html.ValidationMessageFor(model => model.RecipeTitle, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <!-- submit button -->
+                        <div class="input-group  mr-auto ml-auto">
+                            <input type="submit" formmethod="post" value="Submit" class="btn btn-primary mr-auto ml-auto" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+
+        <div class="container-fluid col-xl-5 col-md-8 col-sm-10 ml-auto mr-auto">
+            @using (Html.BeginForm(controllerName: "Staff", actionName: "AddRecipeIngredient"))
+            {
+                <!-- Start of form for adding recipe ingredient -->
+                <div class="">
+                    <div class="container-fluid mb-3">
+                        <h3 class="text-center">
+                            <!-- Section title -->
+                            Add an Ingredient
+                        </h3>
+                    </div>
+
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group ">
+                        <!-- input area for ingredient name -->
+                        <div class="input-group  mr-auto ml-auto">
+                            <div class="w-100 input-group">
+                                <div class="input-group-prepend">
+                                    @Html.LabelFor(model => model.Ingredient.IngredientName, htmlAttributes: new { @class = "control-label input-group-text" })
+                                </div>
+                                @Html.EditorFor(model => model.Ingredient.IngredientName, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.Ingredient.IngredientName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <!-- Input area for ingrdient quantity -->
+                        <div class="input-group  mr-auto ml-auto">
+                            <div class="w-100 input-group">
+                                <div class="input-group-prepend">
+                                    @Html.LabelFor(model => model.Ingredient.IngredientQuantity, htmlAttributes: new { @class = "control-label input-group-text" })
+                                </div>
+                                @Html.EditorFor(model => model.Ingredient.IngredientQuantity, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.Ingredient.IngredientQuantity, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group ">
+                        <!-- Input area for ingred. unit -->
+                        <div class="input-group  mr-auto ml-auto">
+                            <div class="w-100 input-group">
+                                <div class="input-group-prepend">
+                                    @Html.LabelFor(model => model.Ingredient.IngredientUnit, htmlAttributes: new { @class = "control-label input-group-text" })
+                                </div>
+                                @Html.EditorFor(model => model.Ingredient.IngredientUnit, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
+                            @Html.ValidationMessageFor(model => model.Ingredient.IngredientUnit, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <!-- dropdownlist to choose recipe -->
+                        <div class="input-group  mr-auto ml-auto">
+                            <div class="input-group-prepend">
+                                @Html.LabelFor(model => model.RecipeTitle, htmlAttributes: new { @class = "control-label input-group-text" })
+                            </div>
+                            @Html.DropDownListFor(model => model.RecipeTitle, new SelectList(Model.RecipeTitles), htmlAttributes: new { @class = "form-control" }, optionLabel: "Please Select")
+                        </div>
+                        @Html.ValidationMessageFor(model => model.RecipeTitle, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <!-- Submit button -->
+                        <div class="input-group  mr-auto ml-auto">
+                            <input type="submit" formmethod="post" value="Submit" class="btn btn-primary mr-auto ml-auto" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+</div>

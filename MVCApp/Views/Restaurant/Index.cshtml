@@ -1,0 +1,82 @@
+﻿@model  MVCApp.Models.RestaurantModel
+@{
+    ViewBag.Title = "Index";
+}
+<head>
+    <script src="~/Scripts/restaurant.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class=" text-center modal-title border-bottom border-dark mb-5 mt-3">
+        <!-- Page title -->
+        <h3>Local Restaurants</h3>
+    </div>
+    <div class="row mb-5">
+        <div class="col-md-2 mb-3">
+            <!-- Previous restaurant button - onclick calls JS -->
+            <button class="btn btn-primary col-12" onclick="previous()">Previous</button>
+        </div>
+
+        <div class="col-md-8 text-center mb-3">
+            <!-- Spacing between buttons-->
+            <h4 >
+                <span id="RestaurantID">@Html.DisplayFor(m => m.RestaurantID)</span>: <span id="RestaurantName">@Html.DisplayFor(m=>m.RestaurantName)</span>
+            </h4>
+            <noscript class="text-danger">
+                <p>
+                    Javascript is required for the experience on this page
+                </p>
+            </noscript>
+        </div>
+        <div class="col-md-2 mb-3">
+            <!-- Next button - onclick calls JS -->
+            <button class="btn btn-primary col-12" onclick="next()">Next</button>
+        </div>
+    </div>
+    <div class="container-fluid mb-5">
+        <p class="text-danger text-center " id="WarningText">
+            <!-- Empty for now - JS will populate this if it can't get a next/previous restaurant -->
+        </p>
+    </div>
+    <div class="container-fluid row">
+        <div class="col-xl-6 mb-5">
+                <img  src="~/Content/images/Restaurant/Bright's.jpg" id ="RestaurantImg" class="mx-auto d-block" />
+       </div>
+        
+        <div class="col-xl-6">
+            <table class="table table-bordered">
+                <!-- Vertical table displaying the restaurant details -->
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(m => m.RestaurantDetails)
+                    </td>
+                    <td id="RestaurantDetails">
+                        @Html.DisplayFor(m => m.RestaurantDetails)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(m => m.RestaurantAddress)
+                    </td>
+                    <td id="RestaurantAddress">
+                        @Html.DisplayFor(m => m.RestaurantAddress)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(m => m.RestaurantURL)
+                    </td>
+                    <td >
+                        <a id="RestaurantUrl" href="@Model.RestaurantURL">Link</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Map</td>
+                    <!-- iframe dispalying gooogle maps, showing restaurant location -->
+                    <td><iframe id="RestaurantMap" src="@Model.MapsSRC" class="col-12" height="300" frameborder="0" style="border:0" allowfullscreen></iframe></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>

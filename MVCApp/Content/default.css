@@ -1,0 +1,70 @@
+﻿#bodyTitle {
+    /*Setting formatting for the body title 'What we provide'*/
+    padding-top: 50px;
+    text-align: center;
+    padding-bottom: 50px;
+    width:100%
+}
+.content-img {
+    margin-bottom: 1rem;
+    border-radius:5px;
+}
+
+#content {
+    /*Section containing rows of content*/
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+    background-color: lightgray;
+}
+
+.content-row {
+    /*Class to display content in a row*/
+    display: flex;
+    flex-direction: row;
+}
+
+    .content-row div, .content-row article {
+        /*To ensure articles inside a content row share screen space evenly*/
+        flex: 1;
+    }
+
+.content-area {
+    /*Create space between content articles*/
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.content-title {
+    /*formatting for the title of an article*/
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+
+.content-area div {
+    /*Center items within the content area*/
+    align-items: center;
+}
+
+.content-row img {
+    /*Set formatting for image*/
+    /*width: 50%;*/
+    width: 360px;
+    float: left;
+    padding-right: 10px;
+    border-radius: 20px;
+    resize: none;
+}
+
+@media screen and (max-width:1200px) {
+    .content-row {
+        /*When on a small screen, change the content rows to columns for better viewing*/
+        flex-direction: column;
+    }
+}

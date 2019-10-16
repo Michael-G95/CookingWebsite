@@ -1,0 +1,22 @@
+﻿{
+  "imgProducts": {
+    "1": "/Content/images/index_pan.jpg",
+    "2": "/Content/images/index_grill.jpg",
+    "3": "/Content/images/index_tools.jpg"
+  },
+  "imgSuppliers": {
+    "1": "/Content/images/index_supplier.jpg",
+    "2": "/Content/images/index_school.jpg",
+    "3": "/Content/images/index_lakeland.jpg"
+  },
+  "imgRestaurants": {
+    "1": "/Content/images/index_darcys.jpg",
+    "2": "/Content/images/index_benedicts.jpg",
+    "3": "/Content/images/index_cosmos.jpg"
+  },
+  "imgRecipes": {
+    "1": "/Content/images/index_macncheese.jpg",
+    "2": "/Content/images/index_stirfry.jpg",
+    "3": "/Content/images/index_applepie.jpg"
+  }
+}
